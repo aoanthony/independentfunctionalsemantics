@@ -17,7 +17,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/bin"
-libdir     = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/lib/x86_64-osx-ghc-7.10.3/barkerproject-0.1.0.0-CtnArvJC79eEZ2uMwBfVWP"
+libdir     = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/lib/x86_64-osx-ghc-7.10.3/barkerproject-0.1.0.0-3voEAj2yQsR8v79C8raUhR"
 datadir    = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/share/x86_64-osx-ghc-7.10.3/barkerproject-0.1.0.0"
 libexecdir = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/libexec"
 sysconfdir = "/Users/Alex/Dropbox/data1/january_2016/barker/barkerproject/.stack-work/install/x86_64-osx/lts-5.0/7.10.3/etc"

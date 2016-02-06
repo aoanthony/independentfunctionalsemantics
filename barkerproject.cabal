@@ -51,6 +51,7 @@ library
                  , case-insensitive
                  , wai
                  , yesod-text-markdown
+                 , QuickCheck
 
 
  executable barkerproject

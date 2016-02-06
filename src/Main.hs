@@ -4,7 +4,6 @@ main = do
   putStrLn "hello here"
 
 
-
 data PrimitiveExpressions = The | Every | Some | No  --DET
                           | Girl | Boy | Hero        --CN
                           | SnowWhite | Alice        --N
@@ -24,14 +23,15 @@ data PrimitiveDenotations = E_SnowWhite | E_Alice | E_John | E_Mary
 
 --ll    "doubleBrackets" [[ ]] primitiveinterp
 
+
 ll :: PrimitiveExpressions -> PrimitiveDenotations
 
-ll SnowWhite = E_SnowWhite
-ll Alice = E_Alice
-ll Laughed = E_Laughing
-ll Loved = E_Loving
-ll Admired = E_Admiring
-ll Gave = E_Giving
+ll SnowWhite  = E_SnowWhite
+ll Alice      = E_Alice
+ll Laughed    = E_Laughing
+ll Loved      = E_Loving
+ll Admired    = E_Admiring
+ll Gave       = E_Giving
 
 
 data Tree a = Leaf a | Branch (Tree a) (Tree a) deriving (Show, Eq)
@@ -48,6 +48,7 @@ alice2 = Branch alicelaughed laughed
 treeExpr tree = treeMap fst tree
 treeDeno tree = treeMap ll $ treeMap fst tree
 treeType tree = treeMap snd tree
+
 
 treeMap :: (a -> b) -> Tree a -> Tree b
 treeMap f (Leaf x) = Leaf (f x)
@@ -237,3 +238,157 @@ proper node | typeOf (fst node) == snd node   = True
 -- goal: print all the things using recursion
 --
 -- challenge: do it both "bottom up" and "top down"
+
+
+
+
+-- exercises: games from van Eijk & Unger
+
+-- battleship: 2x 10x10 grids identified by letter & number
+
+-- battleship: 5, frigate: 4, two submarines : 3, destroyer : 2
+
+data Column   = A | B | C | D | E | F | G | H | I | J deriving (Eq,Ord,Show,Enum)
+type Row      = Integer
+type Attack   = Pos
+data Ship     = Battleship | Frigate | Submarine | Destroyer deriving Show
+data Reaction = Missed | Hit Ship | Sunk Ship | Lost deriving Show
+type Turn     = (Attack, Reaction)
+
+-- goal: define a ship layout
+getReaction :: Attack -> ShipState -> Reaction
+getReaction x y | x `elem` bs5Fringe (fst y)         = Hit Battleship
+                | x `elem` fr4Fringe (fst (snd y))   = Hit Frigate
+                | x `elem` su3Fringe (fst
+                                     (snd (snd y)))  = Hit Submarine
+                | x `elem` ds2Fringe (snd
+                                     (snd (snd y)))  = Hit Destroyer
+
+
+type Pos      = (Column, Row)
+type Grid     = [Pos]
+
+adjacent :: Pos -> Pos -> Bool
+adjacent (x,y) (z,a) | x < z && succ x == z && y == a  = True
+                     | x > z && pred x == z && y == a  = True
+                     | y < a && succ y == a && x == z  = True
+                     | y > a && pred y == a && x == z  = True
+                     | otherwise                       = False
+
+type BSState   = (Pos, (Pos, (Pos, (Pos, Pos))))
+type FRState   = (Pos, (Pos, (Pos, (Pos))))
+type SUState   = (Pos, (Pos, Pos))
+type DSState   = (Pos, Pos)
+type ShipState = (BSState, (FRState, (SUState, DSState)))
+
+--defineLocation :: ((Ship, BSState), (Ship, FRState), (Ship, SUState), (Ship, DSState)) -> ShipState
+--defineLocation x = map4Tuple snd x
+
+
+-- 5ples
+bs5Maker :: Pos -> Pos -> Pos -> Pos -> Pos -> (Pos, (Pos, (Pos, (Pos, Pos))))
+bs5Maker x1 x2 x3 x4 x5 = (x1,(x2,(x3,(x4, x5))))
+
+bs5Fringe :: (Pos, (Pos, (Pos, (Pos, Pos)))) -> [Pos]
+bs5Fringe (x1,(x2,(x3,(x4,x5)))) = [x1,x2,x3,x4,x5]
+
+
+-- 4ples
+fr4Maker :: Pos -> Pos -> Pos -> Pos -> (Pos,(Pos,(Pos,Pos)))
+fr4Maker x1 x2 x3 x4 = (x1,(x2,(x3,x4)))
+
+fr4Fringe :: (Pos, (Pos, (Pos, Pos))) -> [Pos]
+fr4Fringe (x1,(x2,(x3,x4))) = [x1,x2,x3,x4]
+
+-- 3ples
+su3Maker :: Pos -> Pos -> Pos -> (Pos,(Pos,Pos))
+su3Maker x1 x2 x3 = (x1,(x2,x3))
+
+su3Fringe :: (Pos, (Pos, Pos)) -> [Pos]
+su3Fringe (x1,(x2,x3)) = [x1,x2,x3]
+
+-- 2ples
+ds2Maker :: Pos -> Pos -> (Pos,Pos)
+ds2Maker x y = (x,y)
+
+ds2Fringe :: (Pos, Pos) -> [Pos]
+ds2Fringe (x1,x2) = [x1,x2]
+
+
+-- Define ShipState
+defineLocation :: BSState -> FRState -> SUState -> DSState -> ShipState
+defineLocation x1 x2 x3 x4 = (x1, (x2, (x3, x4)))
+
+-- Get ShipState Fringe
+ssFringe :: ShipState -> [Pos]
+ssFringe (bs,(fr,(su,ds))) = bs5Fringe bs ++ fr4Fringe fr ++ su3Fringe su ++ ds2Fringe ds
+
+-- does the ssFringe have multiple entites in the same position?
+repeats :: [Pos] -> Bool
+repeats (x:xs) | x `elem` xs = True
+               | otherwise   = repeats xs
+repeats _                    = False
+
+properGame :: ShipState -> Bool
+properGame state = not (repeats (ssFringe state))
+
+
+
+bss  = ((A,1),
+            ((B,1),
+              ((C,1),
+                ((D,1),(E,1)))))
+frs  = ((A,2),((B,2),((C,2),(D,2))))
+sus  = ((A,3),((B,3),(C,3)))
+dss  = ((A,4),(B,4))
+
+ss  = (bss,(frs,(sus,dss)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a1 = (A,1)
+a2 = (A,2)
+a3 = (A,3)
+a4 = (A,4)
+a5 = (A,5)
+a6 = (A,6)
+b1 = (B,1)
+b2 = (B,2)
+b3 = (B,3)
+b4 = (B,4)
+b5 = (B,5)
+b6 = (B,6)
+
+
+
+--fringeTuple :: ShipState -> Grid
+
+
+
+
+
+
+
+
+
+-- locate :: Ship -> [Pos]
+-- locate Battleship = [(A,1), (B,1), (C,1), (D,1), (E,1)]
+-- locate Frigate = [(A,2), (B,2), (C,2) ]
+
+
+--seems to work
+
+
+
+--occupied :: Pos -> Bool
