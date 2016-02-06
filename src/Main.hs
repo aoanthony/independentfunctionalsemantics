@@ -1,4 +1,6 @@
 module Main where
+import Data.List
+
 main :: IO()
 main = do
   putStrLn "hello here"
@@ -248,14 +250,70 @@ proper node | typeOf (fst node) == snd node   = True
 
 -- battleship: 5, frigate: 4, two submarines : 3, destroyer : 2
 
-data Column   = A | B | C | D | E | F | G | H | I | J deriving (Eq,Ord,Show,Enum)
-type Row      = Integer
-type Attack   = Pos
-data Ship     = Battleship | Frigate | Submarine | Destroyer deriving Show
-data Reaction = Missed | Hit Ship | Sunk Ship | Lost deriving Show
-type Turn     = (Attack, Reaction)
+data Column      = A | B | C | D | E | F | G | H | I | J deriving (Eq,Ord,Show,Enum)
+type Row         = Integer
+type Attack      = Pos
+data Ship        = Battleship | Frigate | Submarine | Destroyer deriving Show
+data Reaction    = Missed | Hit Ship | Sunk Ship | Lost deriving Show
+type Turn        = (Attack, Reaction)
+type Pos         = (Column, Row)
+type Grid        = [Pos]
+type ActionState = (Grid,Grid)
 
--- goal: define a ship layout
+
+type BSState   = (Pos, (Pos, (Pos, (Pos, Pos))))
+type FRState   = (Pos, (Pos, (Pos, (Pos))))
+type SUState   = (Pos, (Pos, Pos))
+type DSState   = (Pos, Pos)
+type ShipState = (BSState, (FRState, (SUState, DSState)))
+
+
+--excludes actionstates where first Grid [hits] has no overlap with second grid [misses]
+properAS :: ActionState -> Bool
+properAS (x,y) | null (x `intersect` y)  = True
+               | otherwise               = False
+
+-- rules out ShipStates w/overlapping ships
+-- rules out ShipStates w/
+properGame :: ShipState -> Bool
+properGame state = not (repeats (ssFringe state))
+                 && contiguousBS (fst state)
+                 && contiguousFR (fst (snd state))
+                 && contiguousSU (fst (snd (snd state)))
+                 && contiguousDS (snd (snd (snd state)))
+
+contiguousBS :: BSState -> Bool
+contiguousBS (x1, (x2, (x3, (x4, x5)))) |     adjacent x1 x2
+                                          &&  adjacent x2 x3
+                                          &&  adjacent x3 x4
+                                          &&  adjacent x4 x5 = True
+                                        | otherwise          = False
+
+
+contiguousFR :: FRState -> Bool
+contiguousFR (x1, (x2, (x3, x4))) |  adjacent x1 x2
+                                     &&  adjacent x2 x3
+                                     &&  adjacent x3 x4 = True
+                                  |  otherwise          = False
+
+
+contiguousSU :: SUState -> Bool
+contiguousSU (x1, (x2, x3))       |  adjacent x1 x2
+                                     && adjacent x2 x3 = True
+                                  |  otherwise         = False
+
+
+contiguousDS :: DSState -> Bool
+contiguousDS (x1, x2)             |  adjacent x1 x2    = True
+                                  |  otherwise         = False
+
+
+-- Define ShipState
+defineLocation :: BSState -> FRState -> SUState -> DSState -> ShipState
+defineLocation x1 x2 x3 x4 = (x1, (x2, (x3, x4)))
+
+
+-- works! don't change
 getReaction :: Attack -> ShipState -> Reaction
 getReaction x y | x `elem` bs5Fringe (fst y)         = Hit Battleship
                 | x `elem` fr4Fringe (fst (snd y))   = Hit Frigate
@@ -264,10 +322,6 @@ getReaction x y | x `elem` bs5Fringe (fst y)         = Hit Battleship
                 | x `elem` ds2Fringe (snd
                                      (snd (snd y)))  = Hit Destroyer
 
-
-type Pos      = (Column, Row)
-type Grid     = [Pos]
-
 adjacent :: Pos -> Pos -> Bool
 adjacent (x,y) (z,a) | x < z && succ x == z && y == a  = True
                      | x > z && pred x == z && y == a  = True
@@ -275,15 +329,24 @@ adjacent (x,y) (z,a) | x < z && succ x == z && y == a  = True
                      | y > a && pred y == a && x == z  = True
                      | otherwise                       = False
 
-type BSState   = (Pos, (Pos, (Pos, (Pos, Pos))))
-type FRState   = (Pos, (Pos, (Pos, (Pos))))
-type SUState   = (Pos, (Pos, Pos))
-type DSState   = (Pos, Pos)
-type ShipState = (BSState, (FRState, (SUState, DSState)))
+
+-- Get ShipState Fringe
+ssFringe :: ShipState -> [Pos]
+ssFringe (bs,(fr,(su,ds))) = bs5Fringe bs ++ fr4Fringe fr ++ su3Fringe su ++ ds2Fringe ds
+
+-- does the ssFringe have multiple entites in the same position?
+repeats :: [Pos] -> Bool
+repeats (x:xs) | x `elem` xs = True
+              | otherwise   = repeats xs
+repeats _                    = False
+
 
 --defineLocation :: ((Ship, BSState), (Ship, FRState), (Ship, SUState), (Ship, DSState)) -> ShipState
 --defineLocation x = map4Tuple snd x
 
+
+
+-- HELPER FUNCTIONS
 
 -- 5ples
 bs5Maker :: Pos -> Pos -> Pos -> Pos -> Pos -> (Pos, (Pos, (Pos, (Pos, Pos))))
@@ -291,7 +354,6 @@ bs5Maker x1 x2 x3 x4 x5 = (x1,(x2,(x3,(x4, x5))))
 
 bs5Fringe :: (Pos, (Pos, (Pos, (Pos, Pos)))) -> [Pos]
 bs5Fringe (x1,(x2,(x3,(x4,x5)))) = [x1,x2,x3,x4,x5]
-
 
 -- 4ples
 fr4Maker :: Pos -> Pos -> Pos -> Pos -> (Pos,(Pos,(Pos,Pos)))
@@ -315,23 +377,9 @@ ds2Fringe :: (Pos, Pos) -> [Pos]
 ds2Fringe (x1,x2) = [x1,x2]
 
 
--- Define ShipState
-defineLocation :: BSState -> FRState -> SUState -> DSState -> ShipState
-defineLocation x1 x2 x3 x4 = (x1, (x2, (x3, x4)))
 
--- Get ShipState Fringe
-ssFringe :: ShipState -> [Pos]
-ssFringe (bs,(fr,(su,ds))) = bs5Fringe bs ++ fr4Fringe fr ++ su3Fringe su ++ ds2Fringe ds
 
--- does the ssFringe have multiple entites in the same position?
-repeats :: [Pos] -> Bool
-repeats (x:xs) | x `elem` xs = True
-               | otherwise   = repeats xs
-repeats _                    = False
-
-properGame :: ShipState -> Bool
-properGame state = not (repeats (ssFringe state))
-
+-- defines valid ShipState w/ no duplicate Poss
 
 
 bss  = ((A,1),
