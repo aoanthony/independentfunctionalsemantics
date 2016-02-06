@@ -18,6 +18,10 @@ data PrimitiveTypes       = DET | CN | N | IV | TV | DV deriving (Eq, Show, Ord)
 data PrimitiveDenotations = E_SnowWhite | E_Alice | E_John | E_Mary
                           | E_Laughing | E_Loving | E_Admiring | E_Giving
                           deriving (Eq, Show, Ord)
+
+
+
+
 --ll    "doubleBrackets" [[ ]] primitiveinterp
 
 ll :: PrimitiveExpressions -> PrimitiveDenotations
@@ -54,7 +58,42 @@ treeFold fbranch fleaf = g where
   g (Leaf x) = fleaf x
   g (Branch left right) = fbranch (g left) (g right)
 
+
 fringeTree = treeFold (++) (: [])
+
+
+memberTree :: Eq a => a -> Tree a -> Bool
+memberTree x (Leaf y) | x == y    = True
+                      | otherwise = False
+memberTree a (Branch y z) =  (memberTree a y) || (memberTree a z)
+
+
+
+member :: Eq a => a -> [a] -> Bool
+member _ [] = False
+member a (x:xs) | a == x      = True
+                | otherwise   = member a xs
+
+
+rember :: Eq a => a -> [a] -> [a]
+rember _ [] = []
+rember a (x:xs) | a == x      = xs
+                | otherwise   = x : rember a xs
+
+multirember :: Eq a => a -> [a] -> [a]
+multirember _ [] = []
+multirember a (x:xs) | a == x      = multirember a xs
+                     | otherwise   = x : multirember a xs
+
+
+insertR :: Eq a => a -> a -> [a] -> [a]
+
+insertR new old [] = []
+insertR new old (x:xs) | old == x     = old : (new : xs)
+                       | otherwise    = x : insertR new old xs
+
+
+
 
 
 typeOf :: PrimitiveExpressions -> PrimitiveTypes
@@ -90,28 +129,7 @@ proper node | typeOf (fst node) == snd node   = True
 --data Tree a = Leaf a | Branch (Tree a) (Tree a)
 
 
-member :: Eq a => a -> [a] -> Bool
-member _ [] = False
-member a (x:xs) | a == x      = True
-                | otherwise   = member a xs
 
-
-rember :: Eq a => a -> [a] -> [a]
-rember _ [] = []
-rember a (x:xs) | a == x      = xs
-                | otherwise   = x : rember a xs
-
-multirember :: Eq a => a -> [a] -> [a]
-multirember _ [] = []
-multirember a (x:xs) | a == x      = multirember a xs
-                     | otherwise   = x : multirember a xs
-
-
-insertR :: Eq a => a -> a -> [a] -> [a]
-
-insertR new old [] = []
-insertR new old (x:xs) | old == x     = old : (new : xs)
-                       | otherwise    = x : insertR new old xs
 
 
 -- consTree 1 Branch Empty Empty =
