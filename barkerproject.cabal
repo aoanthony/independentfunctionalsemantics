@@ -1,0 +1,60 @@
+name:                barkerproject
+version:             0.1.0.0
+synopsis:            Simple project template from stack
+description:         Please see README.md
+homepage:            http://github.com/githubuser/barkerproject#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2010 Author Here
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.10
+
+Flag dev
+    Description:   Turn on development settings, like auto-reload templates.
+    Default:       False
+
+Flag library-only
+    Description:   Build for use with "yesod devel"
+    Default:       False
+
+library
+    build-depends: base                          >= 4          && < 5
+                 , bytestring                    >= 0.9        && < 0.11
+                 , text                          >= 0.11       && < 2.0
+                 , persistent                    >= 2.0        && < 2.3
+                 , persistent-sqlite             >= 2.1.1      && < 2.3
+                 , persistent-template           >= 2.0        && < 2.3
+                 , template-haskell
+                 , shakespeare                   >= 2.0        && < 2.1
+                 , hjsmin                        >= 0.1        && < 0.2
+                 , monad-control                 >= 0.3        && < 1.1
+                 , wai-extra                     >= 3.0        && < 3.1
+                 , yaml                          >= 0.8        && < 0.9
+                 , http-conduit                  >= 2.1        && < 2.2
+                 , directory                     >= 1.1        && < 1.3
+                 , warp                          >= 3.0        && < 3.3
+                 , data-default
+                 , aeson                         >= 0.6        && < 0.11
+                 , conduit                       >= 1.0        && < 2.0
+                 , monad-logger                  >= 0.3        && < 0.4
+                 , fast-logger                   >= 2.2        && < 2.5
+                 , wai-logger                    >= 2.2        && < 2.3
+                 , file-embed
+                 , safe
+                 , unordered-containers
+                 , containers
+                 , vector
+                 , time
+                 , case-insensitive
+                 , wai
+                 , yesod-text-markdown
+
+
+ executable barkerproject
+   hs-source-dirs:      src
+   main-is:             Main.hs
+   default-language:    Haskell2010
+   build-depends:       base >= 4.7 && < 5

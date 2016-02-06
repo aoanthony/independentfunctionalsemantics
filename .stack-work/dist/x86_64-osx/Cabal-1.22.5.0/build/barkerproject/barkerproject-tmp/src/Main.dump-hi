@@ -1,0 +1,1112 @@
+
+==================== FINAL INTERFACE ====================
+2016-02-05 22:54:40.250242 UTC
+
+interface main@main:Main 7103
+  interface hash: 99c33ffc34954d6ace546b03955e1c52
+  ABI hash: f61c6e74b6e453e3298d1d6381aba5f9
+  export-list hash: b8342890753098eb8abf569ef2a37e02
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bebb000ace4bf603378f0e13deede3e9
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.alice
+  Main.boy
+  Main.boyi
+  Main.cons
+  Main.consTree
+  Main.gave
+  Main.gavei
+  Main.laughed
+  Main.main
+  Main.proper
+  Main.typeOf
+  Main.PrimitiveExpressions{Main.Admired Main.Alice Main.Boy Main.Every Main.Gave Main.Girl Main.Hero Main.Laughed Main.Loved Main.No Main.SnowWhite Main.Some Main.The}
+  Main.PrimitiveTypes{Main.CN Main.DET Main.DV Main.IV Main.N Main.TV}
+  Main.Tree{Main.Empty Main.Node}
+  Main.Value
+module dependencies:
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0899686bfc1d9ef72dff3de85e99862a
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+72bc915b1d1f20997b66415025071bc3
+  $fEqPrimitiveExpressions ::
+    GHC.Classes.Eq Main.PrimitiveExpressions
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveExpressions
+                  Main.$fEqPrimitiveExpressions_$c==
+                  Main.$fEqPrimitiveExpressions_$c/= -}
+72bc915b1d1f20997b66415025071bc3
+  $fEqPrimitiveExpressions_$c/= ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==#
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False } } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fEqPrimitiveExpressions_$c== ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 GHC.Prim.tagToEnum#
+                   @ GHC.Types.Bool
+                   (GHC.Prim.==#
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fEqPrimitiveTypes :: GHC.Classes.Eq Main.PrimitiveTypes
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveTypes
+                  Main.$fEqPrimitiveTypes_$c==
+                  Main.$fEqPrimitiveTypes_$c/= -}
+11d47201487edb382f4f8ce634ae47ca
+  $fEqPrimitiveTypes_$c/= ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.DET -> GHC.Types.False }
+                   Main.CN
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.CN -> GHC.Types.False }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.N -> GHC.Types.False }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.IV -> GHC.Types.False }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.TV -> GHC.Types.False }
+                   Main.DV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.DV -> GHC.Types.False } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fEqPrimitiveTypes_$c== ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ ds :: Main.PrimitiveTypes
+                   ds1 :: Main.PrimitiveTypes ->
+                 case ds of wild {
+                   Main.DET
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DET -> GHC.Types.True }
+                   Main.CN
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.CN -> GHC.Types.True }
+                   Main.N
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.N -> GHC.Types.True }
+                   Main.IV
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.IV -> GHC.Types.True }
+                   Main.TV
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.TV -> GHC.Types.True }
+                   Main.DV
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DV -> GHC.Types.True } }) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fEqTree :: GHC.Classes.Eq a => GHC.Classes.Eq (Main.Tree a)
+  DFunId[0]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dEq :: GHC.Classes.Eq a.
+                  @ (Main.Tree a)
+                  (Main.$fEqTree_$c== @ a $dEq)
+                  (Main.$fEqTree_$c/= @ a $dEq) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fEqTree_$c/= ::
+    GHC.Classes.Eq a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dEq :: GHC.Classes.Eq a
+                   a1 :: Main.Tree a
+                   b :: Main.Tree a ->
+                 case Main.$fEqTree_$c== @ a $dEq a1 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fEqTree_$c== ::
+    GHC.Classes.Eq a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><S,1*U><S,1*U> -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions ::
+    GHC.Classes.Ord Main.PrimitiveExpressions
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveExpressions
+                  Main.$fEqPrimitiveExpressions
+                  Main.$fOrdPrimitiveExpressions_$ccompare
+                  Main.$fOrdPrimitiveExpressions_$c<
+                  Main.$fOrdPrimitiveExpressions_$c<=
+                  Main.$fOrdPrimitiveExpressions_$c>
+                  Main.$fOrdPrimitiveExpressions_$c>=
+                  Main.$fOrdPrimitiveExpressions_$cmax
+                  Main.$fOrdPrimitiveExpressions_$cmin -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$c< ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 GHC.Prim.tagToEnum#
+                   @ GHC.Types.Bool
+                   (GHC.Prim.<#
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$c<= ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 GHC.Prim.tagToEnum#
+                   @ GHC.Types.Bool
+                   (GHC.Prim.<=#
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$c> ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 GHC.Prim.tagToEnum#
+                   @ GHC.Types.Bool
+                   (GHC.Prim.>#
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$c>= ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 GHC.Prim.tagToEnum#
+                   @ GHC.Types.Bool
+                   (GHC.Prim.>=#
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                      (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$ccompare ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> GHC.Types.Ordering
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: Main.PrimitiveExpressions b :: Main.PrimitiveExpressions ->
+                 case a of x1 { DEFAULT ->
+                 case b of x2 { DEFAULT ->
+                 let {
+                   b# :: GHC.Prim.Int#
+                   = GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2
+                 } in
+                 let {
+                   a# :: GHC.Prim.Int#
+                   = GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# a# b#) of wild {
+                   GHC.Types.False
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.==# a# b#) of wild1 {
+                        GHC.Types.False -> GHC.Types.GT GHC.Types.True -> GHC.Types.EQ }
+                   GHC.Types.True -> GHC.Types.LT } } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$cmax ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> Main.PrimitiveExpressions
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x :: Main.PrimitiveExpressions y :: Main.PrimitiveExpressions ->
+                 case x of x1 { DEFAULT ->
+                 case y of x2 { DEFAULT ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=#
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) of wild {
+                   GHC.Types.False -> x1 GHC.Types.True -> x2 } } }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fOrdPrimitiveExpressions_$cmin ::
+    Main.PrimitiveExpressions
+    -> Main.PrimitiveExpressions -> Main.PrimitiveExpressions
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x :: Main.PrimitiveExpressions y :: Main.PrimitiveExpressions ->
+                 case x of x1 { DEFAULT ->
+                 case y of x2 { DEFAULT ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=#
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x1)
+                           (GHC.Prim.dataToTag# @ Main.PrimitiveExpressions x2)) of wild {
+                   GHC.Types.False -> x2 GHC.Types.True -> x1 } } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes :: GHC.Classes.Ord Main.PrimitiveTypes
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveTypes
+                  Main.$fEqPrimitiveTypes
+                  Main.$fOrdPrimitiveTypes_$ccompare
+                  Main.$fOrdPrimitiveTypes_$c<
+                  Main.$fOrdPrimitiveTypes_$c<=
+                  Main.$fOrdPrimitiveTypes_$c>
+                  Main.$fOrdPrimitiveTypes_$c>=
+                  Main.$fOrdPrimitiveTypes_$cmax
+                  Main.$fOrdPrimitiveTypes_$cmin -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$c< ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.False
+                        Main.CN -> GHC.Types.True
+                        Main.N -> GHC.Types.True
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.CN
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.N -> GHC.Types.True
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DV -> GHC.Types.True }
+                   Main.DV -> case b of wild1 { DEFAULT -> GHC.Types.False } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$c<= ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET -> case b of wild1 { DEFAULT -> GHC.Types.True }
+                   Main.CN
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.False
+                        Main.CN -> GHC.Types.True
+                        Main.N -> GHC.Types.True
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.N -> GHC.Types.True
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.IV -> GHC.Types.True
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Main.TV -> GHC.Types.True
+                        Main.DV -> GHC.Types.True }
+                   Main.DV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DV -> GHC.Types.True } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$c> ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET -> case b of wild1 { DEFAULT -> GHC.Types.False }
+                   Main.CN
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.True
+                        Main.CN -> GHC.Types.False
+                        Main.N -> GHC.Types.False
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.N -> GHC.Types.False
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.DV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.DV -> GHC.Types.False } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$c>= ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.True
+                        Main.CN -> GHC.Types.False
+                        Main.N -> GHC.Types.False
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.CN
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.N -> GHC.Types.False
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.IV -> GHC.Types.False
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Main.TV -> GHC.Types.False
+                        Main.DV -> GHC.Types.False }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Main.DV -> GHC.Types.False }
+                   Main.DV -> case b of wild1 { DEFAULT -> GHC.Types.True } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$ccompare ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> GHC.Types.Ordering
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a :: Main.PrimitiveTypes b :: Main.PrimitiveTypes ->
+                 case a of wild {
+                   Main.DET
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.EQ
+                        Main.CN -> GHC.Types.LT
+                        Main.N -> GHC.Types.LT
+                        Main.IV -> GHC.Types.LT
+                        Main.TV -> GHC.Types.LT
+                        Main.DV -> GHC.Types.LT }
+                   Main.CN
+                   -> case b of wild1 {
+                        Main.DET -> GHC.Types.GT
+                        Main.CN -> GHC.Types.EQ
+                        Main.N -> GHC.Types.LT
+                        Main.IV -> GHC.Types.LT
+                        Main.TV -> GHC.Types.LT
+                        Main.DV -> GHC.Types.LT }
+                   Main.N
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.GT
+                        Main.N -> GHC.Types.EQ
+                        Main.IV -> GHC.Types.LT
+                        Main.TV -> GHC.Types.LT
+                        Main.DV -> GHC.Types.LT }
+                   Main.IV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.GT
+                        Main.IV -> GHC.Types.EQ
+                        Main.TV -> GHC.Types.LT
+                        Main.DV -> GHC.Types.LT }
+                   Main.TV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.GT
+                        Main.TV -> GHC.Types.EQ
+                        Main.DV -> GHC.Types.LT }
+                   Main.DV
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.GT Main.DV -> GHC.Types.EQ } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$cmax ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> Main.PrimitiveTypes
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ x :: Main.PrimitiveTypes y :: Main.PrimitiveTypes ->
+                 case x of wild {
+                   Main.DET -> y
+                   Main.CN
+                   -> case y of wild1 {
+                        DEFAULT -> Main.CN
+                        Main.N -> Main.N
+                        Main.IV -> Main.IV
+                        Main.TV -> Main.TV
+                        Main.DV -> Main.DV }
+                   Main.N
+                   -> case y of wild1 {
+                        DEFAULT -> Main.N
+                        Main.IV -> Main.IV
+                        Main.TV -> Main.TV
+                        Main.DV -> Main.DV }
+                   Main.IV
+                   -> case y of wild1 {
+                        DEFAULT -> Main.IV Main.TV -> Main.TV Main.DV -> Main.DV }
+                   Main.TV
+                   -> case y of wild1 { DEFAULT -> Main.TV Main.DV -> Main.DV }
+                   Main.DV -> case y of wild1 { DEFAULT -> Main.DV } }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fOrdPrimitiveTypes_$cmin ::
+    Main.PrimitiveTypes -> Main.PrimitiveTypes -> Main.PrimitiveTypes
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ x :: Main.PrimitiveTypes y :: Main.PrimitiveTypes ->
+                 case x of wild {
+                   Main.DET -> case y of wild1 { DEFAULT -> Main.DET }
+                   Main.CN
+                   -> case y of wild1 {
+                        Main.DET -> Main.DET
+                        Main.CN -> Main.CN
+                        Main.N -> Main.CN
+                        Main.IV -> Main.CN
+                        Main.TV -> Main.CN
+                        Main.DV -> Main.CN }
+                   Main.N
+                   -> case y of wild1 {
+                        DEFAULT -> wild1
+                        Main.N -> Main.N
+                        Main.IV -> Main.N
+                        Main.TV -> Main.N
+                        Main.DV -> Main.N }
+                   Main.IV
+                   -> case y of wild1 {
+                        DEFAULT -> wild1
+                        Main.IV -> Main.IV
+                        Main.TV -> Main.IV
+                        Main.DV -> Main.IV }
+                   Main.TV
+                   -> case y of wild1 {
+                        DEFAULT -> wild1 Main.TV -> Main.TV Main.DV -> Main.TV }
+                   Main.DV -> y }) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    GHC.Classes.Ord (Main.Tree a)
+  DFunId[1]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U><L,U(A,C(C1(U)),A,A,A,A,A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      $dEq :: GHC.Classes.Eq (Main.Tree a)
+                      $dOrd :: GHC.Classes.Ord a.
+                  @ (Main.Tree a)
+                  $dEq
+                  (Main.$fOrdTree_$ccompare @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$c< @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$c<= @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$c> @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$c>= @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$cmax @ a $dEq $dOrd)
+                  (Main.$fOrdTree_$cmin @ a $dEq $dOrd) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$c< ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   w :: GHC.Classes.Eq (Main.Tree a)
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: Main.Tree a
+                   w3 :: Main.Tree a ->
+                 Main.$w$c< @ a w1 w2 w3) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$c<= ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   w :: GHC.Classes.Eq (Main.Tree a)
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: Main.Tree a
+                   w3 :: Main.Tree a ->
+                 Main.$w$c<= @ a w1 w2 w3) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$c> ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   w :: GHC.Classes.Eq (Main.Tree a)
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: Main.Tree a
+                   w3 :: Main.Tree a ->
+                 Main.$w$c> @ a w1 w2 w3) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$c>= ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   w :: GHC.Classes.Eq (Main.Tree a)
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: Main.Tree a
+                   w3 :: Main.Tree a ->
+                 Main.$w$c>= @ a w1 w2 w3) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$ccompare ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Ordering
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   w :: GHC.Classes.Eq (Main.Tree a)
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: Main.Tree a
+                   w3 :: Main.Tree a ->
+                 Main.$w$ccompare @ a w1 w2 w3) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$cmax ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> Main.Tree a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,U><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   $dEq :: GHC.Classes.Eq (Main.Tree a)
+                   $dOrd :: GHC.Classes.Ord a
+                   x :: Main.Tree a
+                   y :: Main.Tree a ->
+                 case Main.$fOrdTree_$c<= @ a $dEq $dOrd x y of wild {
+                   GHC.Types.False -> x GHC.Types.True -> y }) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fOrdTree_$cmin ::
+    (GHC.Classes.Eq (Main.Tree a), GHC.Classes.Ord a) =>
+    Main.Tree a -> Main.Tree a -> Main.Tree a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,U(A,C(C1(U)),A,A,A,A,A,A)><S,U><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   $dEq :: GHC.Classes.Eq (Main.Tree a)
+                   $dOrd :: GHC.Classes.Ord a
+                   x :: Main.Tree a
+                   y :: Main.Tree a ->
+                 case Main.$fOrdTree_$c<= @ a $dEq $dOrd x y of wild {
+                   GHC.Types.False -> y GHC.Types.True -> x }) -}
+72bc915b1d1f20997b66415025071bc3
+  $fShowPrimitiveExpressions ::
+    GHC.Show.Show Main.PrimitiveExpressions
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveExpressions
+                  Main.$fShowPrimitiveExpressions_$cshowsPrec
+                  Main.$fShowPrimitiveExpressions_$cshow
+                  Main.$fShowPrimitiveExpressions_$cshowList -}
+4815e9f8c167abfce32273609473559e
+  $fShowPrimitiveExpressions1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Gave"#) -}
+effad28e33a9ed7d82dac423a0650f77
+  $fShowPrimitiveExpressions10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "No"#) -}
+d4569d6f632bfb578fd543822c34a98e
+  $fShowPrimitiveExpressions11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Some"#) -}
+4409ad6e6d7a30c9d9a6188f3a1959f8
+  $fShowPrimitiveExpressions12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Every"#) -}
+85ce80481f276cdb3e546066a9a6f5d6
+  $fShowPrimitiveExpressions13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "The"#) -}
+13f0769aa87e7d46b961789d00bd998f
+  $fShowPrimitiveExpressions2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Admired"#) -}
+dd5db27473cc917214d57e4f7def019b
+  $fShowPrimitiveExpressions3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Loved"#) -}
+6926499f77995b7810d6c367373b30cc
+  $fShowPrimitiveExpressions4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Laughed"#) -}
+b97349e5f5b9e3024ebc21cd2be3755d
+  $fShowPrimitiveExpressions5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Alice"#) -}
+e211bf4405ce6e9dbcdd691147f8f599
+  $fShowPrimitiveExpressions6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "SnowWhite"#) -}
+f3d5974722bb3a92df342e5473df999b
+  $fShowPrimitiveExpressions7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Hero"#) -}
+c861b732f0e9c54f575ff8d857ea1ee4
+  $fShowPrimitiveExpressions8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Boy"#) -}
+521a335b93c6722af7f60b8b6009e41d
+  $fShowPrimitiveExpressions9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Girl"#) -}
+72bc915b1d1f20997b66415025071bc3
+  $fShowPrimitiveExpressions_$cshow ::
+    Main.PrimitiveExpressions -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.PrimitiveExpressions ->
+                 Main.$fShowPrimitiveExpressions_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+72bc915b1d1f20997b66415025071bc3
+  $fShowPrimitiveExpressions_$cshowList ::
+    [Main.PrimitiveExpressions] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.PrimitiveExpressions
+                   Main.$w$cshowsPrec) -}
+72bc915b1d1f20997b66415025071bc3
+  $fShowPrimitiveExpressions_$cshowsPrec ::
+    GHC.Types.Int -> Main.PrimitiveExpressions -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ w :: GHC.Types.Int
+                   w1 :: Main.PrimitiveExpressions
+                   w2 :: GHC.Base.String ->
+                 Main.$w$cshowsPrec w1 w2) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fShowPrimitiveTypes :: GHC.Show.Show Main.PrimitiveTypes
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.PrimitiveTypes
+                  Main.$fShowPrimitiveTypes_$cshowsPrec
+                  Main.$fShowPrimitiveTypes_$cshow
+                  Main.$fShowPrimitiveTypes_$cshowList -}
+08cd3454f8f2295e421f6d7eef157413
+  $fShowPrimitiveTypes1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "DV"#) -}
+8d2eef3b607a8a8440bc55ff7cceceef
+  $fShowPrimitiveTypes2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "TV"#) -}
+56360553c9b1709c728aba4faae6ecd8
+  $fShowPrimitiveTypes3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "IV"#) -}
+0e0c98ba78965eec7720d3152c44a3f0
+  $fShowPrimitiveTypes4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "N"#) -}
+adde84d9f98b2168ac7c6701d419841d
+  $fShowPrimitiveTypes5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "CN"#) -}
+7edc3a2566400e41fc0f3ff1e214d861
+  $fShowPrimitiveTypes6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "DET"#) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fShowPrimitiveTypes_$cshow ::
+    Main.PrimitiveTypes -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.PrimitiveTypes ->
+                 Main.$fShowPrimitiveTypes_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fShowPrimitiveTypes_$cshowList ::
+    [Main.PrimitiveTypes] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.PrimitiveTypes
+                   Main.$w$cshowsPrec1) -}
+11d47201487edb382f4f8ce634ae47ca
+  $fShowPrimitiveTypes_$cshowsPrec ::
+    GHC.Types.Int -> Main.PrimitiveTypes -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ w :: GHC.Types.Int
+                   w1 :: Main.PrimitiveTypes
+                   w2 :: GHC.Base.String ->
+                 Main.$w$cshowsPrec1 w1 w2) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fShowTree :: GHC.Show.Show a => GHC.Show.Show (Main.Tree a)
+  DFunId[0]
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dShow :: GHC.Show.Show a.
+                  @ (Main.Tree a)
+                  (Main.$fShowTree_$cshowsPrec @ a $dShow)
+                  (Main.$fShowTree_$cshow @ a $dShow)
+                  (Main.$fShowTree_$cshowList @ a $dShow) -}
+96000c126c94c4c6ded490157a204bda
+  $fShowTree1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fShowTree_$cshow ::
+    GHC.Show.Show a => Main.Tree a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,U(C(C1(U)),A,A)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a $dShow :: GHC.Show.Show a x :: Main.Tree a ->
+                 Main.$fShowTree_$cshowsPrec
+                   @ a
+                   $dShow
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fShowTree_$cshowList ::
+    GHC.Show.Show a => [Main.Tree a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dShow :: GHC.Show.Show a
+                   eta :: [Main.Tree a]
+                   eta1 :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Main.Tree a)
+                   (Main.$fShowTree_$cshowsPrec @ a $dShow Main.$fShowTree1)
+                   eta
+                   eta1) -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $fShowTree_$cshowsPrec ::
+    GHC.Show.Show a => GHC.Types.Int -> Main.Tree a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><L,1*U(U)><S,1*U> -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $w$c< ::
+    GHC.Classes.Ord a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: [0] -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $w$c<= ::
+    GHC.Classes.Ord a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: [0] -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $w$c> ::
+    GHC.Classes.Ord a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: [0] -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $w$c>= ::
+    GHC.Classes.Ord a => Main.Tree a -> Main.Tree a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: [0] -}
+2c29f5ddcb045e3e9c957ed7472c205b
+  $w$ccompare ::
+    GHC.Classes.Ord a =>
+    Main.Tree a -> Main.Tree a -> GHC.Types.Ordering
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><S,1*U>,
+     Inline: [0] -}
+72bc915b1d1f20997b66415025071bc3
+  $w$cshowsPrec ::
+    Main.PrimitiveExpressions -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: Main.PrimitiveExpressions
+                   w1 :: GHC.Base.String ->
+                 case w of wild {
+                   Main.The
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowPrimitiveExpressions13
+                        w1
+                   Main.Every
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowPrimitiveExpressions12
+                        w1
+                   Main.Some
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowPrimitiveExpressions11
+                        w1
+                   Main.No
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowPrimitiveExpressions10
+                        w1
+                   Main.Girl
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions9 w1
+                   Main.Boy
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions8 w1
+                   Main.Hero
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions7 w1
+                   Main.SnowWhite
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions6 w1
+                   Main.Alice
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions5 w1
+                   Main.Laughed
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions4 w1
+                   Main.Loved
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions3 w1
+                   Main.Admired
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveExpressions2 w1
+                   Main.Gave
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowPrimitiveExpressions1
+                        w1 }) -}
+11d47201487edb382f4f8ce634ae47ca
+  $w$cshowsPrec1 ::
+    Main.PrimitiveTypes -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: Main.PrimitiveTypes w1 :: GHC.Base.String ->
+                 case w of wild {
+                   Main.DET
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes6 w1
+                   Main.CN
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes5 w1
+                   Main.N
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes4 w1
+                   Main.IV
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes3 w1
+                   Main.TV
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes2 w1
+                   Main.DV
+                   -> GHC.Base.++ @ GHC.Types.Char Main.$fShowPrimitiveTypes1 w1 }) -}
+a217128055f752f2604b4d818f2b3e13
+  $wconsTree ::
+    Main.Value
+    -> Main.Tree Main.Value
+    -> (# Main.Value, Main.Tree Main.Value, Main.Tree Main.Value #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0] -}
+e388972493e2df658acd5bb6f943288c
+  $wproper ::
+    Main.PrimitiveExpressions -> Main.PrimitiveTypes -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: Main.PrimitiveExpressions
+                   ww1 :: Main.PrimitiveTypes ->
+                 case ww of wild {
+                   DEFAULT
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DET -> GHC.Types.True }
+                   Main.Girl
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.CN -> GHC.Types.True }
+                   Main.Boy
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.CN -> GHC.Types.True }
+                   Main.Hero
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.CN -> GHC.Types.True }
+                   Main.SnowWhite
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.N -> GHC.Types.True }
+                   Main.Alice
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.N -> GHC.Types.True }
+                   Main.Laughed
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.IV -> GHC.Types.True }
+                   Main.Loved
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.TV -> GHC.Types.True }
+                   Main.Admired
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.TV -> GHC.Types.True }
+                   Main.Gave
+                   -> case ww1 of wild1 {
+                        DEFAULT -> GHC.Types.False Main.DV -> GHC.Types.True } }) -}
+72bc915b1d1f20997b66415025071bc3
+  data PrimitiveExpressions
+    = The
+    | Every
+    | Some
+    | No
+    | Girl
+    | Boy
+    | Hero
+    | SnowWhite
+    | Alice
+    | Laughed
+    | Loved
+    | Admired
+    | Gave
+    Promotable
+11d47201487edb382f4f8ce634ae47ca
+  data PrimitiveTypes = DET | CN | N | IV | TV | DV
+    Promotable
+2c29f5ddcb045e3e9c957ed7472c205b
+  data Tree a = Empty | Node a (Main.Tree a) (Main.Tree a)
+    Promotable
+c4e52e3bd6457c618676f8e44173a62f
+  type Value = (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+39254e972f9ffd44fdd9b8897a41de12
+  alice :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Main.Alice, Main.N)) -}
+43912aadd04540a7000de8c734df8fa0
+  boy :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m, Unfolding: ((Main.Boy, Main.CN)) -}
+b3d18a485159a780bd884a6816fb4cdd
+  boyi :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m, Unfolding: ((Main.Boy, Main.DV)) -}
+ee224cb5d52ebb637913f7e7c2179eeb
+  cons :: Main.Value -> Main.Tree Main.Value -> Main.Tree Main.Value
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>m2,
+     Unfolding: InlineRule (0, True, True) Main.consTree -}
+4456c9c956609d8ccb1713543d232c4b
+  consTree ::
+    Main.Value -> Main.Tree Main.Value -> Main.Tree Main.Value
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>m2,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Main.Value w1 :: Main.Tree Main.Value ->
+                 case Main.$wconsTree w w1 of ww { (#,,#) ww1 ww2 ww3 ->
+                 Main.Node @ Main.Value ww1 ww2 ww3 }) -}
+f5660dcf4673bd9045782c1bce75ed9a
+  gave :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Main.Gave, Main.DV)) -}
+2ac269d4c1a26c0041cb7b49dcc4db98
+  gavei :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Main.Gave, Main.CN)) -}
+cd7f20a7f40ad536891b222a2929d1ce
+  laughed :: (Main.PrimitiveExpressions, Main.PrimitiveTypes)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Main.Laughed, Main.IV)) -}
+4e00e90cfb2acd8c4ac927dd47809ee0
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+7cbd7a6c0fbb31326cb0bbbeb923c8bf
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+e0b1708f8c404a45c535e09e3c0c56f9
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
+2bf5f2defded413ab5b8f4d8418fbe36
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+86033854c06b9c1b6962504a133f1ea0
+  proper :: Main.Value -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SS),U(1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Main.Value ->
+                 case w of ww { (,) ww1 ww2 -> Main.$wproper ww1 ww2 }) -}
+2bcda9ed53f630b66e52d5ad0c5c3a2c
+  typeOf :: Main.PrimitiveExpressions -> Main.PrimitiveTypes
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ ds :: Main.PrimitiveExpressions ->
+                 case ds of wild {
+                   DEFAULT -> Main.DET
+                   Main.Girl -> Main.CN
+                   Main.Boy -> Main.CN
+                   Main.Hero -> Main.CN
+                   Main.SnowWhite -> Main.N
+                   Main.Alice -> Main.N
+                   Main.Laughed -> Main.IV
+                   Main.Loved -> Main.TV
+                   Main.Admired -> Main.TV
+                   Main.Gave -> Main.DV }) -}
+instance GHC.Classes.Eq [Main.PrimitiveExpressions]
+  = Main.$fEqPrimitiveExpressions
+instance GHC.Classes.Eq [Main.PrimitiveTypes]
+  = Main.$fEqPrimitiveTypes
+instance GHC.Classes.Eq [Main.Tree] = Main.$fEqTree
+instance GHC.Classes.Ord [Main.PrimitiveExpressions]
+  = Main.$fOrdPrimitiveExpressions
+instance GHC.Classes.Ord [Main.PrimitiveTypes]
+  = Main.$fOrdPrimitiveTypes
+instance GHC.Classes.Ord [Main.Tree] = Main.$fOrdTree
+instance GHC.Show.Show [Main.PrimitiveExpressions]
+  = Main.$fShowPrimitiveExpressions
+instance GHC.Show.Show [Main.PrimitiveTypes]
+  = Main.$fShowPrimitiveTypes
+instance GHC.Show.Show [Main.Tree] = Main.$fShowTree
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
